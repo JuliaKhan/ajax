@@ -73,3 +73,28 @@ function orderMelons(evt) {
   
 }
 document.querySelector('#order-form').addEventListener('submit', orderMelons);
+
+
+//Further Study: get json response from https://dog.ceo/api/breeds/image/random
+//and then display the image from the url in json['message'] 
+
+function getDogImage(){
+  const imageDiv = document.querySelector('#dog-image');
+
+  fetch('https://dog.ceo/api/breeds/image/random')
+    .then((response) => response.text())
+    .then((responseJSON) => {
+      const dogURL = JSON.parse(responseJSON)['message']; //working to here
+      if (! document.querySelector('#dog-pic')){
+        imageDiv.insertAdjacentHTML('beforeend', `<img id="dog-pic" src=${dogURL}>`)
+      }
+        else {
+          document.querySelector('#dog-pic').setAttribute('src', dogURL)
+        }
+    })
+}
+
+document.querySelector('#get-dog-image').addEventListener('click', getDogImage)
+
+
+//$(".breeds-image-random pre").html(JSON.stringify(data, null, 4));

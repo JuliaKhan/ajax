@@ -14,3 +14,15 @@ h2 {
   /* use this if an ERROR code was returned */
   color: red;
 }
+
+#get-dog-image {
+  margin: 8px
+}
+
+#dog-pic {
+  display: block;
+  max-width:500px;
+  max-height:500px;
+  width: auto;
+  height: auto;
+}
